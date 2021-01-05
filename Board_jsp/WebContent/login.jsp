@@ -7,8 +7,6 @@
 <title>JSP-board</title>
 </head>
 <body>
-	<script>
-		location.href='main';
-	</script>
+
 </body>
 </html>
