@@ -29,8 +29,8 @@
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"
 							role="button" aria-haspopup="true" aria-expanded="false">접속하기<span class="caret"></span></a>
 					<ul class="dropdown-menu">
-						<li class="active"><a href="login.jsp">로그인</a></li>
-						<li><a href="join.jsp">회원가입</a></li>
+						<li><a href="login.jsp">로그인</a></li>
+						<li class="active"><a href="join.jsp">회원가입</a></li>
 					</ul>
 				</li>	
 			</ul>
@@ -53,7 +53,7 @@
 					</div>
 					<div class="form-group" style="text-align:center;">
 						<div class="btn-group" data-toggle="buttons">
-							<label class="btn btn-primary active">
+							<label class="btn btn-primary">
 								<input type="radio" name="userGender" autocomplete="off" value="남자" checked>남자
 							</label>
 							<label class="btn btn-primary">
@@ -62,7 +62,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" placeholder="이메일" name="useEmail" maxlength="20">
+						<input type="email" class="form-control" placeholder="이메일" name="userEmail" maxlength="20">
 					</div>
 					<input type="submit" class="btn btn-primary form-control" value="회원가입">
 				</form>
