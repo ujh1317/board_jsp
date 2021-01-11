@@ -92,4 +92,18 @@ public class BoardDAO {
 		return list;
 	}//getList()
 	
+	public boolean nextPage(int pageNumber){
+		String sql = "select * from board where boardID < ? and boardAvailable = 1";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, getNext() - (pageNumber - 1)*10);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				return true;
+			}//if
+		}catch(Exception e){
+			e.printStackTrace();
+		}//catch
+		return false;
+	}//nextPage
 }//class

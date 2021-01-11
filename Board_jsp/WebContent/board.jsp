@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="board.BoardDAO" %>
+<%@ page import="board.Board" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +17,11 @@
 		String userID = null;
 		if(session.getAttribute("userID") != null){
 			userID = (String) session.getAttribute("userID");
-		}
+		}//if
+		int pageNumber = 1;
+		if(request.getParameter("pageNumber") != null){
+			pageNumber = Integer.parseInt(request.getParameter("pageNumber"));
+		}//if
 	%>
 
 	<nav class="navbar navbar-default">
@@ -74,12 +81,20 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>1</td>
-						<td>안녕하세요.</td>
-						<td>홍길동</td>
-						<td>2021-01-09</td>
-					</tr>
+				<%
+					BoardDAO boardDAO = new BoardDAO();
+					ArrayList<Board> list = boardDAO.getList(pageNumber);
+					for(int i=0; i<list.size(); i++){
+				%>
+						<tr>
+							<td><%= list.get(i).getBoardID() %></td>
+							<td><a href="view.jsp?boardID=<%=list.get(i).getBoardID()%>"><%= list.get(i).getBoardTitle() %></a></td>
+							<td><%= list.get(i).getUserID() %></td>
+							<td><%= list.get(i).getBoardDate().substring(0,11)+list.get(i).getBoardDate().substring(11,13)+"시"+list.get(i).getBoardDate().substring(14,16)+"분" %></td>
+						</tr>
+				<%		
+					}//for
+				%>
 				</tbody>
 			</table>
 			<a href="write.jsp" class="btn btn-primary pull-right">글쓰기</a>
