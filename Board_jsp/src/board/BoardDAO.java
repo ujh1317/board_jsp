@@ -106,4 +106,30 @@ public class BoardDAO {
 		}//catch
 		return false;
 	}//nextPage
+	
+	public Board getBoard(int boardID){
+		String sql = "select * from board where boardID = ?";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardID);
+			rs = pstmt.executeQuery();
+			if(rs.next()){
+				Board board = new Board();
+				board.setBoardID(rs.getInt(1));
+				board.setBoardTitle(rs.getString(2));
+				board.setUserID(rs.getString(3));
+				board.setBoardDate(rs.getString(4));
+				board.setBoardContent(rs.getString(5));
+				board.setBoardAvailable(rs.getInt(6));
+				return board;
+			}//if
+		}catch(Exception e){
+			e.printStackTrace();
+		}//catch
+		return null;
+	}//getBoard()
+	
+	
+	
 }//class
+
