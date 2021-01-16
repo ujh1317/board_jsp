@@ -86,11 +86,11 @@
 				<tbody>
 					<tr>
 						<td style="width: 20%">글 제목</td>
-						<td colspan="2"><%=board.getUserID() %></td>
+						<td colspan="2"><%=board.getBoardTitle().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
 					</tr>
 					<tr>
 						<td>작성자</td>
-						<td colspan="2"><%=board.getBoardTitle() %></td>
+						<td colspan="2"><%=board.getUserID() %></td>
 					</tr>
 					<tr>
 						<td>작성일자</td>
@@ -98,7 +98,7 @@
 					</tr>
 					<tr>
 						<td>내용</td>
-						<td colspan="2" style="min-height: 200px; text-align: left;"><%=board.getBoardContent().replaceAll("\n", "<br>") %></td>
+						<td colspan="2" style="min-height: 200px; text-align: left;"><%=board.getBoardContent().replaceAll(" ", "&nbsp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll("\n", "<br>") %></td>
 					</tr>
 				</tbody>
 			</table>
