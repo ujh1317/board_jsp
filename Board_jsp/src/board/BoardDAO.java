@@ -129,6 +129,19 @@ public class BoardDAO {
 		return null;
 	}//getBoard()
 	
+	public int update(int boardID, String boardTitle, String boardContent){
+		String sql = "update board set boardTitle=?, boardContent=? where boardID=?";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, boardTitle);
+			pstmt.setString(2, boardContent);
+			pstmt.setInt(3, boardID);
+			return pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}//catch
+		return -1; //데이터베이스 오류
+	}//update()
 	
 	
 }//class
