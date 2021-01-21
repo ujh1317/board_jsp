@@ -143,6 +143,17 @@ public class BoardDAO {
 		return -1; //데이터베이스 오류
 	}//update()
 	
+	public int delete(int boardID){
+		String sql = "update board set boardAvailable=0 where boardID=?";
+		try{
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, boardID);
+			return pstmt.executeUpdate();
+		}catch(Exception e){
+			e.printStackTrace();
+		}//catch
+		return -1; //데이터베이스 오류
+	}//delete()
 	
 }//class
 
