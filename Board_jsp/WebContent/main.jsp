@@ -72,9 +72,9 @@
 			</div>
 		</div>
 	</div>
-	<div class="cantainer">
-		<div id="myCarousel" class="carousel" data-ride="carousel">
-			<ol class="carousel-indocators">
+	<div class="container">
+		<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			<ol class="carousel-indicators">
 				<li data-target="#myCarousel" data-silde-to="0" class="active"></li>
 				<li data-target="#myCarousel" data-silde-to="1"></li>
 				<li data-target="#myCarousel" data-silde-to="2"></li>
@@ -90,6 +90,12 @@
 					<img src="imgs/3.jpg">
 				</div>
 			</div>
+			<a href="#myCarousel" class="left carousel-control" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			</a>
+			<a href="#myCarousel" class="right carousel-control" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			</a>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
